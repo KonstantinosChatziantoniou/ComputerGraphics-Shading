@@ -1,3 +1,7 @@
+% Konstantinos Chatziantoniou 8941 konstantic@ece.auth.gr
+% Aristotle University of Thessaloniki
+% Computer Graphics
+% 3rd Assignment - 2020/06/19
 function Y = shadeGouraud(p, Vn, Pc, C, S, ka, kd, ks, ncoeff, Ia, I0, X)
 % INPUT
 %   p   2x3     triangle edge coordinates 2d

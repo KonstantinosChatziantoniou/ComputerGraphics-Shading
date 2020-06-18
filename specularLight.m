@@ -1,3 +1,7 @@
+% Konstantinos Chatziantoniou 8941 konstantic@ece.auth.gr
+% Aristotle University of Thessaloniki
+% Computer Graphics
+% 3rd Assignment - 2020/06/19
 function I = specularLight(P, N, C, ks, ncoeff, S, I0)
     % params
     %   P 3xr   3d points
@@ -14,10 +18,13 @@ function I = specularLight(P, N, C, ks, ncoeff, S, I0)
     for i = 1:n
         s = S(:,i);
         sI = I0(:,i);
-        L = repmat(P, 1,r) - s;
-        V = repmat(P, 1,r) - C;
+        L = s - repmat(P, 1,r);
+        %L = repmat(P, 1,r) - s;
+        %V = repmat(P, 1,r) - C;
+        V = C - repmat(P, 1,r);
         R = 2*N.*dot(N,normc(L)) - normc(L);
         cosab = dot(normc(R), normc(V));
+        cosab = cosab.*(cosab>0);
         cosab = cosab.^ncoeff;
         facc = 1; %1./sum((L).^2)
         I = I + ks.*sI.*cosab.*facc;

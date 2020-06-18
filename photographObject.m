@@ -1,3 +1,7 @@
+% Konstantinos Chatziantoniou 8941 konstantic@ece.auth.gr
+% Aristotle University of Thessaloniki
+% Computer Graphics
+% 3rd Assignment - 2020/06/19
 function Im = photographObject(shader, f, C, K, u, bC, M, N, H, W, R, F, S, ka, kd, ks, ncoeff, Ia, I0)
     
     NormalVectors = findVertNormals(R, F);
@@ -89,7 +93,7 @@ function [P,D] = projectCameraKu(w, cv, ck ,cu, p)
     cu = -cu;
     ck = cv-ck;
     zc = ck/norm(ck);
-    yc = cu - dot(cross(cu, zc),zc);
+    yc = cu - dot(cu, zc)*zc;
     yc = yc/norm(yc);
     xc = cross(yc,zc);
     
